@@ -85,7 +85,7 @@ def main():
         draw_hud(screen, font, raw_inputs)
         
         pygame.display.flip()
-        clock.tick(10) # <-- Increased to 60 FPS for smooth visualization
+        clock.tick(5) # <-- Increased to 60 FPS for smooth visualization
 
     pygame.quit()
     print("\nSimulation exited.")
