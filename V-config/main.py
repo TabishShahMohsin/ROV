@@ -10,7 +10,8 @@ from config import (
 )
 from input_handler import JoystickController
 from rov_kinematics import compute_thruster_forces
-from drawing_utils import draw_rov, draw_thruster_vectors, draw_hud
+# Import all drawing functions, including the new one
+from drawing_utils import draw_rov, draw_thruster_vectors, draw_hud, draw_resultant_vector
 
 def map_force_to_pwm(normalized_force):
     """Converts a normalized force [-1.0, 1.0] to a PWM signal [1200, 1800]."""
@@ -81,11 +82,16 @@ def main():
         draw_rov(screen, rov_center)
         # Use the final normalized 'thruster_forces' for drawing the vectors
         draw_thruster_vectors(screen, font, rov_center, thruster_forces)
+        
+        # --- ADDED THIS LINE ---
+        # Draw the resultant force vector from the center
+        draw_resultant_vector(screen, rov_center, thruster_forces)
+        
         # Use the 'raw_inputs' for the HUD
         draw_hud(screen, font, raw_inputs)
         
         pygame.display.flip()
-        clock.tick(5) # <-- Increased to 60 FPS for smooth visualization
+        clock.tick(60) # <-- Set to 60 FPS for smooth visualization
 
     pygame.quit()
     print("\nSimulation exited.")

@@ -118,3 +118,29 @@ def draw_hud(screen, font, inputs):
     
     # Draw center line
     pygame.draw.line(screen, GRAY, (hud_center_x, yaw_bar_y - 10), (hud_center_x, yaw_bar_y + 10), 2)
+
+# --- NEW FUNCTION ---
+def draw_resultant_vector(screen, center_pos, forces):
+    """
+    Calculates and draws the total resultant force vector (Surge + Sway)
+    originating from the center of the ROV.
+    """
+    total_fx = 0.0
+    total_fy = 0.0
+    
+    # Sum the X and Y components of all thruster forces
+    for force, angle_deg in zip(forces, THRUSTER_ANGLES_DEG):
+        angle_rad = math.radians(angle_deg)
+        total_fx += force * math.cos(angle_rad)
+        total_fy += force * math.sin(angle_rad)
+
+    # Define start and end points
+    start_x, start_y = center_pos
+    # Use RESULTANT_VECTOR_SCALE from config
+    end_x = start_x + (total_fx * RESULTANT_VECTOR_SCALE)
+    end_y = start_y - (total_fy * RESULTANT_VECTOR_SCALE) # Pygame Y is inverted
+    
+    # Draw the vector if it has significant magnitude
+    if abs(total_fx) > 0.05 or abs(total_fy) > 0.05:
+        # Use YELLOW from config
+        draw_arrow(screen, YELLOW, (start_x, start_y), (end_x, end_y), width=7, arrow_size=15)

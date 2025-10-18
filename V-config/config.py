@@ -10,12 +10,14 @@ DARK_GRAY = (50, 50, 50)
 BLUE = (0, 170, 255)
 RED = (255, 50, 50)
 GREEN = (0, 200, 100)
+YELLOW = (255, 255, 0) # <-- ADDED THIS
 VECTOR_SCALE = 80
+RESULTANT_VECTOR_SCALE = 50 # <-- ADDED THIS
 FONT_SIZE = 30
 
 # --- ROV Physical Configuration (for Allocation Logic) ---
-ROV_WIDTH_MM = 195.311
-ROV_LENGTH_MM = 262.629
+ROV_WIDTH_MM = 262.629
+ROV_LENGTH_MM = 195.311
 
 # --- Simulation Drawing Configuration ---
 SIM_ROV_WIDTH = 150
