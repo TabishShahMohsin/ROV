@@ -25,7 +25,7 @@ class JoystickController:
 
         surge_input = -self.joystick.get_axis(1)  # Invert Y-axis for forward
         sway_input = self.joystick.get_axis(0)
-        yaw_input = self.joystick.get_axis(2)  # Right stick X-axis controls yaw
+        yaw_input = self.joystick.get_axis(2) - self.joystick.get_axis(5)  # Right stick X-axis controls yaw
 
         # Apply deadzone filtering
         if abs(surge_input) < self.deadzone: surge_input = 0.0

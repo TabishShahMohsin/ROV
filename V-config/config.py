@@ -49,6 +49,6 @@ MAX_YAW_TORQUE = 2 * SIN_45 * (ROV_LENGTH_MM + ROV_WIDTH_MM) # approx 647.6
 
 # PWM Mapping Constants (T200)
 PWM_NEUTRAL = 1500
-PWM_RANGE = 300 # Max deviation from neutral
+PWM_RANGE = 70 # Max deviation from neutral
 PWM_MIN = PWM_NEUTRAL - PWM_RANGE
 PWM_MAX = PWM_NEUTRAL + PWM_RANGE
