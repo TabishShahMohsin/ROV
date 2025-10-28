@@ -19,7 +19,7 @@ logging.info("--- New ROV Mission Started ---")
 # --- 2. MISSION CONFIGURATION ---
 # *** TUNE THESE VALUES ***
 # Define the *exact* text you put on your QR codes
-VALID_PHASE_1_COMMANDS = ["go left", "go right", "go straight"] 
+VALID_PHASE_1_COMMANDS = ["left", "right", "go straight"] 
 VALID_PHASE_2_COMMANDS = ["drop left", "drop right"]
 
 # --- 3. ROBUST PRE-PROCESSING (Your Function) ---
